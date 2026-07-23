@@ -1,0 +1,4 @@
+pnpm lint:check
+pnpm type:check
+pnpm test
+pnpm build

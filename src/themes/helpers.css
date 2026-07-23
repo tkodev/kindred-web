@@ -1,0 +1,29 @@
+/* Shared helper styles; added as they earn their place. */
+/* Hide number arrows on inputs */
+@utility hide-number-arrows {
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+  & {
+    appearance: textfield;
+  }
+}
+
+/* Hide scrollbar */
+@utility hide-scrollbar {
+  &::-webkit-scrollbar {
+    display: none; /* Chrome Safari and Opera */
+  }
+  & {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+/* Set svg element origin to self */
+@utility svg-origin {
+  transform-box: fill-box;
+}
+
