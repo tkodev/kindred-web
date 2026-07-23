@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: kindred-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: kindred
+      POSTGRES_PASSWORD: kindred
+      POSTGRES_DB: kindred
+    ports:
+      # Host 5433 (not 5432) to avoid colliding with any other local Postgres.
+      - '5433:5432'
+    volumes:
+      - kindred-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U kindred -d kindred']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  kindred-pgdata:
