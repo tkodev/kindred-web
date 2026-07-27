@@ -2,7 +2,7 @@
 
 A compatibility app for the people already in your life. You fill out a questionnaire about yourself, connect your friends, and reveal how compatible you are with each of them across the dimensions that actually predict a good relationship. Built for adults in their 30s and 40s who want depth over volume: close friendships first, dating where it fits.
 
-**Status: working prototype.** Every surface renders end to end over a typed oRPC layer. Username-only sign-in and profile editing persist to Postgres, with an in-memory fallback so the app runs without Docker. Compatibility scores are still authored seed data (the matching model in [docs/02-prd/06-matching.md](docs/02-prd/06-matching.md) is designed, not yet computed). `Kindred` is a working name.
+**Status: working prototype.** Every surface renders end to end over a typed oRPC layer. Username-only sign-in and profile editing persist to Postgres, with an in-memory fallback so the app runs without Docker. Compatibility scores are still authored seed data (the matching model in [docs/prd/06-matching.md](docs/prd/06-matching.md) is designed, not yet computed). `Kindred` is a working name.
 
 > The compatibility and questionnaire interaction patterns are modeled on [222.place](https://222.place); the color language and product direction are our own.
 
@@ -28,7 +28,7 @@ A compatibility app for the people already in your life. You fill out a question
 | Styling | Tailwind v4 (`@theme`), CVA with `cn()`, an editorial serif over Geist |
 | Testing | Vitest |
 
-The authoritative stack, data-layer, and seed-to-Postgres notes are [docs/02-prd/07-architecture.md](docs/02-prd/07-architecture.md).
+The authoritative stack, data-layer, and seed-to-Postgres notes are [docs/prd/07-architecture.md](docs/prd/07-architecture.md).
 
 ## Getting started
 
@@ -51,9 +51,10 @@ Without `DATABASE_URL` set (or if the database is unreachable) the app runs agai
 .
 ├── AGENTS.md               # agent orientation (CLAUDE.md symlinks here)
 ├── docker-compose.yml      # Postgres 16 for the persistence target
+├── .claude/skills/         # vendored house-standard skills (symlink)
+├── .agents/skills/         # same skills, agent-agnostic path (symlink)
 ├── docs/
-│   ├── 01-standards/       # house rules by topic (from boilerplate-web)
-│   └── 02-prd/             # the numbered product docs, read in order
+│   └── prd/                # the numbered product docs, read in order
 └── src/
     ├── app/                # routes: /, /profile, /friends, /friends/[id], /friends/add, /rpc
     ├── components/         # atoms · molecules · organisms · templates
@@ -66,16 +67,16 @@ Without `DATABASE_URL` set (or if the database is unreachable) the app runs agai
 
 ## Docs
 
-Docs drive the implementation, read in order. The rules ([docs/01-standards/](docs/01-standards/)) are the house standards; the PRD ([docs/02-prd/](docs/02-prd/)) is the product pipeline.
+House standards (component shape, data discipline, Next.js conventions, accessibility, performance, testing, seo, git, writing, process) are vendored as skills, symlinked at `.claude/skills/` and `.agents/skills/`. The PRD ([docs/prd/](docs/prd/)) is the product pipeline:
 
 | Doc | Owns |
 | --- | --- |
-| [01-brief](docs/02-prd/01-brief.md) | What Kindred is, the audience, the aesthetic |
-| [02-design-system](docs/02-prd/02-design-system.md) | Color, type, and the component inventory |
-| [03-profile](docs/02-prd/03-profile.md) | The self-questionnaire surface |
-| [04-compatibility](docs/02-prd/04-compatibility.md) | The friends list and reveal |
-| [05-add-friends](docs/02-prd/05-add-friends.md) | The add-friends surface (our own, not in the source) |
-| [06-matching](docs/02-prd/06-matching.md) | Preliminary compatibility-scoring model |
-| [07-architecture](docs/02-prd/07-architecture.md) | Stack, oRPC data layer, seed-to-Postgres path |
+| [01-brief](docs/prd/01-brief.md) | What Kindred is, the audience, the aesthetic |
+| [02-design-system](docs/prd/02-design-system.md) | Color, type, and the component inventory |
+| [03-profile](docs/prd/03-profile.md) | The self-questionnaire surface |
+| [04-compatibility](docs/prd/04-compatibility.md) | The friends list and reveal |
+| [05-add-friends](docs/prd/05-add-friends.md) | The add-friends surface (our own, not in the source) |
+| [06-matching](docs/prd/06-matching.md) | Preliminary compatibility-scoring model |
+| [07-architecture](docs/prd/07-architecture.md) | Stack, oRPC data layer, seed-to-Postgres path |
 
 For AI-agent orientation see [AGENTS.md](AGENTS.md); `CLAUDE.md` symlinks to it.

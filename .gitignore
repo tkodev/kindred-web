@@ -18,3 +18,7 @@ next-env.d.ts
 
 # os
 .DS_Store
+
+# vendored skills (local-machine symlink, not portable)
+.claude/skills
+.agents/skills
