@@ -1,4 +1,4 @@
-# CLAUDE.md
+# Agent Instructions
 
 Guidance for AI coding agents working in this repository: Kindred (working name), a compatibility app where a member fills out a self-questionnaire, connects friends, and reveals how compatible they are with each. Interaction patterns are modeled on [222.place](https://222.place); the product direction and design are our own. What the app is lives in [README.md](README.md); house standards are vendored as skills (`.claude/skills/`, `.agents/skills/`); the rules and requirements live in `docs/`.
 
