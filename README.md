@@ -49,7 +49,7 @@ Without `DATABASE_URL` set (or if the database is unreachable) the app runs agai
 
 ```text
 .
-├── CLAUDE.md               # agent orientation (CLAUDE.md symlinks here)
+├── AGENTS.md               # agent orientation
 ├── docker-compose.yml      # Postgres 16 for the persistence target
 ├── .claude/skills/         # vendored house-standard skills (symlink)
 ├── .agents/skills/         # same skills, agent-agnostic path (symlink)
@@ -79,4 +79,4 @@ House standards (component shape, data discipline, Next.js conventions, accessib
 | [06-matching](docs/prd/06-matching.md) | Preliminary compatibility-scoring model |
 | [07-architecture](docs/prd/07-architecture.md) | Stack, oRPC data layer, seed-to-Postgres path |
 
-For AI-agent orientation see [CLAUDE.md](CLAUDE.md); `CLAUDE.md` symlinks to it.
+For AI-agent orientation see [AGENTS.md](AGENTS.md).
